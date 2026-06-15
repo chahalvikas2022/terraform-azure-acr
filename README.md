@@ -23,7 +23,7 @@ for creating AZURE resources, and you can customize the inputs as needed. Below 
 # Example: default
 ```hcl
     module "acr" {
-      source              = "git::https://github.com/opsstation/terraform-azure-acr.git?ref=v1.0.0"
+      source              = "git::https://github.com/chahalvikas2022/terraform-azure-acr.git"
       name                = local.name
       environment         = local.environment
       resource_group_name = module.resource_group.resource_group_name
@@ -40,7 +40,7 @@ for creating AZURE resources, and you can customize the inputs as needed. Below 
 
 ```hcl
     module "acr" {
-      source              = "git::https://github.com/opsstation/terraform-azure-acr.git?ref=v1.0.0"
+      source              = "git::https://github.com/chahalvikas2022/terraform-azure-acr.git?ref=v1.0.0"
       name                = local.name
       environment         = local.environment
       resource_group_name = module.resource_group.resource_group_name
@@ -63,7 +63,7 @@ for creating AZURE resources, and you can customize the inputs as needed. Below 
 
 ```hcl
     module "acr" {
-      source              = "git::https://github.com/opsstation/terraform-azure-acr.git?ref=v1.0.0"
+      source              = "git::https://github.com/chahalvikas2022/terraform-azure-acr.git"
       name                = local.name
       environment         = local.environment
       resource_group_name = module.resource_group.resource_group_name
@@ -87,14 +87,14 @@ for creating AZURE resources, and you can customize the inputs as needed. Below 
 This example demonstrates how to create various AZURE resources using the provided modules. Adjust the input values to suit your specific requirements.
 
 ## Examples
-For detailed examples on how to use this module, please refer to the [Examples](https://github.com/opsstation/terraform-azure-acr/tree/master/_example) directory within this repository.
+For detailed examples on how to use this module, please refer to the [Examples](https://github.com/chahalvikas2022/terraform-azure-acr/tree/master/_example) directory within this repository.
 
 ## License
-- This project is licensed under the **MIT** License - see the [LICENSE](https://github.com/opsstation/terraform-azure-acr/blob/master/LICENSE) file for details.
+- This project is licensed under the **MIT** License - see the [LICENSE](https://github.com/chahalvikas2022/terraform-azure-acr/blob/master/LICENSE) file for details.
 
 ## Author
 Your Name
-Replace **MIT** and **OpsStation** with the appropriate license and your information. Feel free to expand this README with additional details or usage instructions as needed for your specific use case.
+Replace **MIT** and **vikas** with the appropriate license and your information. Feel free to expand this README with additional details or usage instructions as needed for your specific use case.
 
 
 Happy Terraforming!
@@ -121,9 +121,9 @@ Happy Terraforming!
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_labels"></a> [labels](#module\_labels) | git::https://github.com/opsstation/terraform-azure-labels.git | v1.0.0 |
+| Name | Source                                                                  | Version |
+|------|-------------------------------------------------------------------------|---------|
+| <a name="module_labels"></a> [labels](#module\_labels) | git::https://github.com/chahalvikas2022/terraform-multicloud-labels.git  |
 ## Resources
 
 | Name | Type |
@@ -141,41 +141,41 @@ Happy Terraforming!
 
 ## Inputs
 
-| Name | Description | Type | Default                                                 | Required |
-|------|-------------|------|---------------------------------------------------------|:--------:|
-| <a name="input_addon_vent_link"></a> [addon\_vent\_link](#input\_addon\_vent\_link) | The name of the addon vnet | `bool` | `false`                                                 | no |
-| <a name="input_addon_virtual_network_id"></a> [addon\_virtual\_network\_id](#input\_addon\_virtual\_network\_id) | The name of the addon vnet link vnet id | `string` | `""`                                                    | no |
-| <a name="input_admin_enabled"></a> [admin\_enabled](#input\_admin\_enabled) | To enable of disable admin access | `bool` | `true`                                                  | no |
-| <a name="input_alias_sub"></a> [alias\_sub](#input\_alias\_sub) | Subscription id for different sub in which dns zone is present. | `string` | `null`                                                  | no |
-| <a name="input_container_registry_config"></a> [container\_registry\_config](#input\_container\_registry\_config) | Manages an Azure Container Registry | <pre>object({<br>    name                      = string<br>    sku                       = optional(string)<br>    quarantine_policy_enabled = optional(bool)<br>    zone_redundancy_enabled   = optional(bool)<br>  })</pre> | n/a                                                     | yes |
-| <a name="input_container_registry_webhooks"></a> [container\_registry\_webhooks](#input\_container\_registry\_webhooks) | Manages an Azure Container Registry Webhook | <pre>map(object({<br>    service_uri    = string<br>    actions        = list(string)<br>    status         = optional(string)<br>    scope          = string<br>    custom_headers = map(string)<br>  }))</pre> | `null`                                                  | no |
-| <a name="input_diff_sub"></a> [diff\_sub](#input\_diff\_sub) | Flag to tell whether dns zone is in different sub or not. | `bool` | `false`                                                 | no |
-| <a name="input_enable"></a> [enable](#input\_enable) | Flag to control module creation. | `bool` | `true`                                                  | no |
-| <a name="input_enable_content_trust"></a> [enable\_content\_trust](#input\_enable\_content\_trust) | Boolean value to enable or disable Content trust in Azure Container Registry | `bool` | `true`                                                  | no |
-| <a name="input_enable_private_endpoint"></a> [enable\_private\_endpoint](#input\_enable\_private\_endpoint) | Manages a Private Endpoint to Azure Container Registry | `bool` | `true`                                                  | no |
-| <a name="input_encryption"></a> [encryption](#input\_encryption) | Encrypt registry using a customer-managed key | <pre>object({<br>    key_vault_key_id   = string<br>    identity_client_id = string<br>  })</pre> | `null`                                                  | no |
-| <a name="input_environment"></a> [environment](#input\_environment) | Environment (e.g. `prod`, `dev`, `staging`). | `string` | `""`                                                    | no |
-| <a name="input_existing_private_dns_zone"></a> [existing\_private\_dns\_zone](#input\_existing\_private\_dns\_zone) | Name of the existing private DNS zone | `string` | `null`                                                  | no |
-| <a name="input_existing_private_dns_zone_id"></a> [existing\_private\_dns\_zone\_id](#input\_existing\_private\_dns\_zone\_id) | ID of existing private dns zone. To be used in dns configuration group in private endpoint. | `string` | `null`                                                  | no |
-| <a name="input_existing_private_dns_zone_resource_group_name"></a> [existing\_private\_dns\_zone\_resource\_group\_name](#input\_existing\_private\_dns\_zone\_resource\_group\_name) | The name of the existing resource group | `string` | `null`                                                  | no |
-| <a name="input_georeplications"></a> [georeplications](#input\_georeplications) | A list of Azure locations where the container registry should be geo-replicated | <pre>list(object({<br>    location                = string<br>    zone_redundancy_enabled = optional(bool)<br>  }))</pre> | `[]`                                                    | no |
-| <a name="input_identity_ids"></a> [identity\_ids](#input\_identity\_ids) | Specifies a list of user managed identity ids to be assigned. This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned` | `any` | `null`                                                  | no |
-| <a name="input_label_order"></a> [label\_order](#input\_label\_order) | Label order, e.g. `name`,`application`. | `list(any)` | <pre>[<br>  "name",<br>  "environment"<br>]</pre>       | no |
-| <a name="input_location"></a> [location](#input\_location) | The location/region to keep all your network resources. To get the list of all locations with table format from azure cli, run 'az account list-locations -o table' | `string` | `""`                                                    | no |
-| <a name="input_managedby"></a> [managedby](#input\_managedby) | ManagedBy, eg ''. | `string` | `"OpsStation"`                                          | no |
-| <a name="input_multi_sub_vnet_link"></a> [multi\_sub\_vnet\_link](#input\_multi\_sub\_vnet\_link) | Flag to control creation of vnet link for dns zone in different subscription | `bool` | `false`                                                 | no |
-| <a name="input_name"></a> [name](#input\_name) | Name  (e.g. `app` or `cluster`). | `string` | `""`                                                    | no |
-| <a name="input_network_rule_set"></a> [network\_rule\_set](#input\_network\_rule\_set) | Manage network rules for Azure Container Registries | <pre>object({<br>    default_action = optional(string)<br>    ip_rule = optional(list(object({<br>      ip_range = string<br>    })))<br>    virtual_network = optional(list(object({<br>      subnet_id = string<br>    })))<br>  })</pre> | `null`                                                  | no |
-| <a name="input_private_dns_name"></a> [private\_dns\_name](#input\_private\_dns\_name) | n/a | `string` | `"privatelink.azurecr.io"`                              | no |
-| <a name="input_private_dns_zone_vnet_link_registration_enabled"></a> [private\_dns\_zone\_vnet\_link\_registration\_enabled](#input\_private\_dns\_zone\_vnet\_link\_registration\_enabled) | (Optional) Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? | `bool` | `true`                                                  | no |
-| <a name="input_public_network_access_enabled"></a> [public\_network\_access\_enabled](#input\_public\_network\_access\_enabled) | To denied public access | `bool` | `false`                                                 | no |
-| <a name="input_repository"></a> [repository](#input\_repository) | Terraform current module repo | `string` | `"https://github.com/opsstation/terraform-azure-acr"`   | no |
-| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | A container that holds related resources for an Azure solution | `string` | `""`                                                    | no |
-| <a name="input_retention_policy"></a> [retention\_policy](#input\_retention\_policy) | Set a retention policy for untagged manifests | <pre>object({<br>    days    = optional(number)<br>    enabled = optional(bool)<br>  })</pre> | <pre>{<br>  "days": 10,<br>  "enabled": true<br>}</pre> | no |
-| <a name="input_same_vnet"></a> [same\_vnet](#input\_same\_vnet) | Variable to be set when multiple acr having common DNS in same vnet. | `bool` | `false`                                                 | no |
-| <a name="input_scope_map"></a> [scope\_map](#input\_scope\_map) | Manages an Azure Container Registry scope map. Scope Maps are a preview feature only available in Premium SKU Container registries. | <pre>map(object({<br>    actions = list(string)<br>  }))</pre> | `null`                                                  | no |
-| <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | Subnet to be used for private endpoint | `list(string)` | `null`                                                  | no |
-| <a name="input_virtual_network_id"></a> [virtual\_network\_id](#input\_virtual\_network\_id) | Virtual Network to be used for private endpoint | `string` | `null`                                                  | no |
+| Name | Description | Type | Default                                                    | Required |
+|------|-------------|------|------------------------------------------------------------|:--------:|
+| <a name="input_addon_vent_link"></a> [addon\_vent\_link](#input\_addon\_vent\_link) | The name of the addon vnet | `bool` | `false`                                                    | no |
+| <a name="input_addon_virtual_network_id"></a> [addon\_virtual\_network\_id](#input\_addon\_virtual\_network\_id) | The name of the addon vnet link vnet id | `string` | `""`                                                       | no |
+| <a name="input_admin_enabled"></a> [admin\_enabled](#input\_admin\_enabled) | To enable of disable admin access | `bool` | `true`                                                     | no |
+| <a name="input_alias_sub"></a> [alias\_sub](#input\_alias\_sub) | Subscription id for different sub in which dns zone is present. | `string` | `null`                                                     | no |
+| <a name="input_container_registry_config"></a> [container\_registry\_config](#input\_container\_registry\_config) | Manages an Azure Container Registry | <pre>object({<br>    name                      = string<br>    sku                       = optional(string)<br>    quarantine_policy_enabled = optional(bool)<br>    zone_redundancy_enabled   = optional(bool)<br>  })</pre> | n/a                                                        | yes |
+| <a name="input_container_registry_webhooks"></a> [container\_registry\_webhooks](#input\_container\_registry\_webhooks) | Manages an Azure Container Registry Webhook | <pre>map(object({<br>    service_uri    = string<br>    actions        = list(string)<br>    status         = optional(string)<br>    scope          = string<br>    custom_headers = map(string)<br>  }))</pre> | `null`                                                     | no |
+| <a name="input_diff_sub"></a> [diff\_sub](#input\_diff\_sub) | Flag to tell whether dns zone is in different sub or not. | `bool` | `false`                                                    | no |
+| <a name="input_enable"></a> [enable](#input\_enable) | Flag to control module creation. | `bool` | `true`                                                     | no |
+| <a name="input_enable_content_trust"></a> [enable\_content\_trust](#input\_enable\_content\_trust) | Boolean value to enable or disable Content trust in Azure Container Registry | `bool` | `true`                                                     | no |
+| <a name="input_enable_private_endpoint"></a> [enable\_private\_endpoint](#input\_enable\_private\_endpoint) | Manages a Private Endpoint to Azure Container Registry | `bool` | `true`                                                     | no |
+| <a name="input_encryption"></a> [encryption](#input\_encryption) | Encrypt registry using a customer-managed key | <pre>object({<br>    key_vault_key_id   = string<br>    identity_client_id = string<br>  })</pre> | `null`                                                     | no |
+| <a name="input_environment"></a> [environment](#input\_environment) | Environment (e.g. `prod`, `dev`, `staging`). | `string` | `""`                                                       | no |
+| <a name="input_existing_private_dns_zone"></a> [existing\_private\_dns\_zone](#input\_existing\_private\_dns\_zone) | Name of the existing private DNS zone | `string` | `null`                                                     | no |
+| <a name="input_existing_private_dns_zone_id"></a> [existing\_private\_dns\_zone\_id](#input\_existing\_private\_dns\_zone\_id) | ID of existing private dns zone. To be used in dns configuration group in private endpoint. | `string` | `null`                                                     | no |
+| <a name="input_existing_private_dns_zone_resource_group_name"></a> [existing\_private\_dns\_zone\_resource\_group\_name](#input\_existing\_private\_dns\_zone\_resource\_group\_name) | The name of the existing resource group | `string` | `null`                                                     | no |
+| <a name="input_georeplications"></a> [georeplications](#input\_georeplications) | A list of Azure locations where the container registry should be geo-replicated | <pre>list(object({<br>    location                = string<br>    zone_redundancy_enabled = optional(bool)<br>  }))</pre> | `[]`                                                       | no |
+| <a name="input_identity_ids"></a> [identity\_ids](#input\_identity\_ids) | Specifies a list of user managed identity ids to be assigned. This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned` | `any` | `null`                                                     | no |
+| <a name="input_label_order"></a> [label\_order](#input\_label\_order) | Label order, e.g. `name`,`application`. | `list(any)` | <pre>[<br>  "name",<br>  "environment"<br>]</pre>          | no |
+| <a name="input_location"></a> [location](#input\_location) | The location/region to keep all your network resources. To get the list of all locations with table format from azure cli, run 'az account list-locations -o table' | `string` | `""`                                                       | no |
+| <a name="input_managedby"></a> [managedby](#input\_managedby) | ManagedBy, eg ''. | `string` | `"vikas"`                                                  | no |
+| <a name="input_multi_sub_vnet_link"></a> [multi\_sub\_vnet\_link](#input\_multi\_sub\_vnet\_link) | Flag to control creation of vnet link for dns zone in different subscription | `bool` | `false`                                                    | no |
+| <a name="input_name"></a> [name](#input\_name) | Name  (e.g. `app` or `cluster`). | `string` | `""`                                                       | no |
+| <a name="input_network_rule_set"></a> [network\_rule\_set](#input\_network\_rule\_set) | Manage network rules for Azure Container Registries | <pre>object({<br>    default_action = optional(string)<br>    ip_rule = optional(list(object({<br>      ip_range = string<br>    })))<br>    virtual_network = optional(list(object({<br>      subnet_id = string<br>    })))<br>  })</pre> | `null`                                                     | no |
+| <a name="input_private_dns_name"></a> [private\_dns\_name](#input\_private\_dns\_name) | n/a | `string` | `"privatelink.azurecr.io"`                                 | no |
+| <a name="input_private_dns_zone_vnet_link_registration_enabled"></a> [private\_dns\_zone\_vnet\_link\_registration\_enabled](#input\_private\_dns\_zone\_vnet\_link\_registration\_enabled) | (Optional) Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? | `bool` | `true`                                                     | no |
+| <a name="input_public_network_access_enabled"></a> [public\_network\_access\_enabled](#input\_public\_network\_access\_enabled) | To denied public access | `bool` | `false`                                                    | no |
+| <a name="input_repository"></a> [repository](#input\_repository) | Terraform current module repo | `string` | `"https://github.com/chahalvikas2022/terraform-azure-acr"` | no |
+| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | A container that holds related resources for an Azure solution | `string` | `""`                                                       | no |
+| <a name="input_retention_policy"></a> [retention\_policy](#input\_retention\_policy) | Set a retention policy for untagged manifests | <pre>object({<br>    days    = optional(number)<br>    enabled = optional(bool)<br>  })</pre> | <pre>{<br>  "days": 10,<br>  "enabled": true<br>}</pre>    | no |
+| <a name="input_same_vnet"></a> [same\_vnet](#input\_same\_vnet) | Variable to be set when multiple acr having common DNS in same vnet. | `bool` | `false`                                                    | no |
+| <a name="input_scope_map"></a> [scope\_map](#input\_scope\_map) | Manages an Azure Container Registry scope map. Scope Maps are a preview feature only available in Premium SKU Container registries. | <pre>map(object({<br>    actions = list(string)<br>  }))</pre> | `null`                                                     | no |
+| <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | Subnet to be used for private endpoint | `list(string)` | `null`                                                     | no |
+| <a name="input_virtual_network_id"></a> [virtual\_network\_id](#input\_virtual\_network\_id) | Virtual Network to be used for private endpoint | `string` | `null`                                                     | no |
 
 ## Outputs
 
